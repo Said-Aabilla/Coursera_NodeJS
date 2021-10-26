@@ -10,6 +10,17 @@ var dishRouter = require('./routes/dishRouter');
 var leaderRouter = require('./routes/leaderRouter');
 var promotionRouter = require('./routes/promotionRouter');
 
+const mongoose = require('mongoose');
+const Dishes = require('./models/dishes');
+const { error } = require('console');
+
+const url = 'mongodb://localhost:27017/restorante';
+const connect = mongoose.connect(url);
+
+connect.then((db) => {
+  console.log('Connected successfully !')
+}, (err) => { console.log(err); });
+
 var app = express();
 
 // view engine setup
